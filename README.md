@@ -1,10 +1,8 @@
-Got it. Here's a concise, professional student-style rewrite that merges **all eight files** into just **two clear documents** — a refined `README.md` and a practical `QUICKSTART.md`.
 
----
 
 # **README.md**
 
-# 🎨 Real-Time Collaborative Drawing Canvas
+# Real-Time Collaborative Drawing Canvas
 
 A web-based real-time collaborative drawing app built using **vanilla JavaScript**, **Node.js**, **Express**, and **Socket.IO**.
 It allows multiple users to draw together on shared canvases in real time — complete with user management, synchronization, notifications, and an intuitive modern interface.
