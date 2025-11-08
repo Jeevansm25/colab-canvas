@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Drawing Canvas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <div class="toolbar-left">
+            <div class="logo">Canvas</div>
+            
+            <div class="toolbar-section">
+                <button id="brushBtn" class="tool-btn active" title="Brush (B)">
+                    
+                    <span class="label">Brush</span>
+                </button>
+                <button id="eraserBtn" class="tool-btn" title="Eraser (E)">
+                    <span class="label">Eraser</span>
+                </button>
+            </div>
+
+            <div class="toolbar-section">
+                <label for="colorPicker" class="color-label">Color</label>
+                <input type="color" id="colorPicker" value="#000000" title="Pick color">
+            </div>
+
+            <div class="toolbar-section">
+                <label for="brushSize" class="size-label">Size</label>
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+                <span id="brushSizeValue" class="size-value">5</span>
+            </div>
+
+            <div class="toolbar-divider"></div>
+
+            <div class="toolbar-section">
+                <button id="undoBtn" class="action-btn" title="Undo (Ctrl+Z)">
+                    <span class="icon"> ↺ </span>
+                    
+                </button>
+                <button id="redoBtn" class="action-btn" title="Redo (Ctrl+Y)">
+                    
+                   
+                    <span class="icon"> ↻ </span>
+                </button>
+                <button id="clearBtn" class="action-btn danger" title="Clear canvas">
+                    <span class="icon">🗑️</span>
+                </button>
+            </div>
+
+            <div class="toolbar-divider"></div>
+
+            <div class="toolbar-section">
+                <button id="saveBtn" class="action-btn" title="Save as PNG">
+                    <span class="icon">📄 </span>
+                    <span class="label">Save</span>
+                </button>
+                <!-- <button id="downloadBtn" class="action-btn" title="Download JSON">
+                    <span class="icon">📥</span>
+                </button> -->
+            </div>
+        </div>
+
+        <div class="toolbar-right">
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-dot offline"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+            <button id="roomsBtn" class="action-btn" title="Change Room" onclick="window.location.href='rooms.html'">
+    <span class="label">Rooms</span>
+            </button>
+            <button id="usersBtn" class="users-btn" title="Online users">
+                <span class="icon">🧑🏻‍🦱</span>
+                <span id="userCount" class="user-count">0</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Users Panel -->
+    <div id="usersPanel" class="users-panel hidden">
+        <div class="panel-header">
+            <h3>Online Users</h3>
+            <button id="closePanelBtn" class="close-btn">✕</button>
+        </div>
+        <div id="usersList" class="users-list">
+            <!-- Users will be added here dynamically -->
+        </div>
+    </div>
+
+    <!-- Canvas -->
+    <canvas id="drawingCanvas"></canvas>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="tools.js"></script>
+    <script src="canvas.js"></script>
+    <script src="websocket.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
